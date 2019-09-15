@@ -21,13 +21,13 @@ public class MenuUITest {
 	@FindBy(how=How.XPATH,using="//a[contains(text(),'Car & Vehicle')]")
 	@CacheLookup
 		WebElement CarButton;
-	@FindBy(how=How.CSS,using=".c-mega-menu__dropdown:nth-child(1) .list-group-item:nth-child(2) > .hyperlink")
-	@CacheLookup
-		WebElement CTP;
-	@FindBy(how=How.CSS,using=".c-columnContent__content:nth-child(1) > .c-columnContent__buttonContent:nth-child(2) > .c-columnContent__hyperlink")
-	@CacheLookup
-		WebElement FindOut;
-	
+//	@FindBy(how=How.CSS,using=".c-mega-menu__dropdown:nth-child(1) .list-group-item:nth-child(2) > .hyperlink")
+//	@CacheLookup
+//		WebElement CTP;
+//	@FindBy(how=How.CSS,using=".c-columnContent__content:nth-child(1) > .c-columnContent__buttonContent:nth-child(2) > .c-columnContent__hyperlink")
+//	@CacheLookup
+//		WebElement FindOut;
+//	
 	
 	
 	
@@ -37,12 +37,13 @@ public class MenuUITest {
 	public void MenuUIWordpress() throws InterruptedException {
 		Thread.sleep(3000);
 		CarButton.click();
+		System.out.println("Car&vechile button was clicked");
 		Thread.sleep(3000);
-		CTP.click();
-		System.out.println("CTP Button Click Worked");
-		Thread.sleep(3000);
-		FindOut.click();
-		System.out.println("Find Out more button Click Worked");
-		Thread.sleep(3000);
+//		CTP.click();
+//		System.out.println("CTP Button Click Worked");
+//		Thread.sleep(3000);
+//		FindOut.click();
+//		System.out.println("Find Out more button Click Worked");
+//		Thread.sleep(3000);
 	}
 	}

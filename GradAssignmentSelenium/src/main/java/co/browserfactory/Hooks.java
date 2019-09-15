@@ -7,7 +7,7 @@ public class Hooks {
     public static WebDriver driver;
 
 	public static WebDriver createWebDriver() {
-        String webdriver = System.getProperty("webdriver.gecko.driver\", \"C:\\\\New folder\\\\geckodriver.exe", "firefox");
+        String webdriver = System.getProperty("webdriver.gecko.driver\", \"C:\\New folder\\geckodriver.exe", "firefox");
         switch(webdriver) {
             case "firefox":
                 return new FirefoxDriver();
