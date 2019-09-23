@@ -1,19 +1,13 @@
 package co.uipackage;
 
-import org.testng.annotations.Test;
-
-import junit.framework.Assert;
-
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
 
 
 public class AnonymousQuoteButton {
@@ -64,7 +58,7 @@ public class AnonymousQuoteButton {
 	
 	
 	
-	@SuppressWarnings("deprecation")
+	
 	public void TitleTest() throws InterruptedException {
 		String ExpectedTitle =  "QBE Insurance Group - NSW Green Slips";
 		String ActualTitle = driver.getTitle();

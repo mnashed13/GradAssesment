@@ -1,20 +1,38 @@
+
+
 package co.browserfactory;
+import java.net.MalformedURLException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-public class Hooks {
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+public class Hooks{
     public static WebDriver driver;
-
-	public static WebDriver createWebDriver() {
-        String webdriver = System.getProperty("webdriver.gecko.driver\", \"C:\\New folder\\geckodriver.exe", "firefox");
-        switch(webdriver) {
-            case "firefox":
-                return new FirefoxDriver();
-            case "chrome":
-                return new ChromeDriver();
-            default:
-                throw new RuntimeException("Unsupported webdriver: " + webdriver);
-        }
+    @Before("@web")
+    public void openBrowser1() throws MalformedURLException {
+        System.out.println("Called openBrowser");
+    	System.setProperty("webdriver.chrome.driver","C:\\New folder\\Selenium Web Driver\\chromedriver_win32\\chromedriver.exe");				
+        driver = new ChromeDriver();
+        driver.manage().deleteAllCookies();
     }
+    @After("@web")
+    public void embedScreenshot(Scenario scenario) {
+        if(scenario.isFailed()) {
+            try {
+                scenario.write("Current Page URL is " + driver.getCurrentUrl());
+                byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+                scenario.embed(screenshot, "image/png");
+            } catch (WebDriverException somePlatformsDontSupportScreenshots) {
+                System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+            }
+ 
+        }
+        driver.quit();
+ 
+    }
+
 }

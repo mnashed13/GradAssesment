@@ -65,4 +65,25 @@ public class DetailsPageTest {
 		 
 	}
 	
+	public void isElementPresent1() { // positive test case
+	if(isElementPresent1(By.cssSelector("#button_forward")))
+	System.out.println("The element present");
+	else
+	System.out.println("this element is missing");
+	 
+
+	if(driver.findElements(By.id("button_forward")).size()>0)
+	 
+	{
+	   System.out.println("The element present");
+	}else
+	{
+	   System.out.println("this element is missing");
+	}
+	}
+
+	private boolean isElementPresent1(By cssSelector) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

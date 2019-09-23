@@ -20,22 +20,28 @@ public class FinishGreenSlipQuote {
 
 	public FinishGreenSlipQuote(WebDriver driver) {
 		this.driver=driver;
+	
 }
+	
 	@FindBy(how=How.CSS,using=".glyphicon-chevron-right")
 	@CacheLookup
 		WebElement FinishButtonClick;	
-
 	
 	
-	
-
+	public void FinalQuoteCheck() throws InterruptedException {
+		WebElement FinalQuote= driver.findElement(By.cssSelector("div.container:nth-child(6) div.qbe-content:nth-child(6) div.row div.col-sm-5 span.qbe-insert-offer-box div.panel.panel-default.panel-standout div.panel-body:nth-child(1) div.visible-md-block.visible-lg-block > span:nth-child(1)"));
+		String innerText= FinalQuote.getText();
+		System.out.println("The Final Quote is " + innerText);
+		Thread.sleep(3000);
+		
+	}
 	
 	public void FinishButtonWordpress() throws InterruptedException {
+		
 		Thread.sleep(3000);
 		FinishButtonClick.click();
 		Thread.sleep(3000);
 		
-		 
 		 
 	}
 	
